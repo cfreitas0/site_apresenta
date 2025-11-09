@@ -93,10 +93,15 @@ ul li a:hover{
     background: #ff7200;
     border: 2px solid #ff7200;
     margin-top: 13px;
-    color: #fff;
+    color: #000000;
     font-size: 14px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.bnt:hover{
+    background-color: #fff;
 }
 
 .bnt:focus{
@@ -106,3 +111,145 @@ ul li a:hover{
 .srch:focus{
     outline: none;
 }
+
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative;
+}
+
+.content .par{
+    padding-left: 15px;
+    padding-bottom: 25pix;
+    font-family: 'Arial';
+    letter-spacing: 1.2px;
+    line-height: 28px;
+}
+
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+}
+
+.content .cn{
+    width: 160px;
+    height: 26px;
+    background: #ff7200;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.content .cn a{
+    text-decoration: none;
+    color: black;
+}
+
+.cn:hover{
+    background-color: #fff;
+}
+
+.content span{
+    color: #ff7200;
+    font-size: 60px;
+}
+
+.form {
+  width: 250px;
+  height: 380px;
+  background: rgba(255, 255, 255, 0.027); /* leve transparência */
+  border: 1px solid rgba(212, 91, 11, 0.808);
+  border-radius: 10px;
+  padding: 20px;
+  position: absolute;
+  top: -20px;
+  left: 870px;
+
+  /* Aqui vem o efeito de vidro */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(px); /* para compatibilidade */
+}
+
+.form h2{
+    width: 220px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #ff7200;
+    font-size: 22px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 3px;
+    padding: 4px;
+}
+
+.form input{
+    width: 240px;
+    height: 34px;
+    background: transparent;
+    border-bottom: 1px solid #ff7200;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 28px;
+    font-family: sans-serif;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: #ffffffad;
+    font-family: Arial;
+}
+
+.bntt{
+    width: 240px;
+    height: 30px;
+    background: #ff7200;
+    border: none;
+    margin-top: 30px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+
+.bntt:hover{
+    background: #fff;
+    color: #ff7200;
+}
+
+.bntt a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+.form .link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form .link a{
+    text-decoration: none;
+    color: #ff7200;
+}
+
+
