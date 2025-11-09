@@ -1,200 +1,239 @@
 @charset 'UTF-8';
 
-*{
+/* REGRAS BÁSICAS E RESET */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Adicionado para facilitar a responsividade */
 }
 
-.main{
+/* ANIMAÇÃO KEYFRAMES PARA O TÍTULO */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MAIN SECTION (Background) */
+.main {
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7)50%, rgba(0,0,0,0.7)50% ), url(fundo1.jpg);
+    min-height: 100vh; /* Alterado para min-height para se ajustar ao conteúdo */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.7) 50%), url(fundo1.jpg);
     background-position: center;
     background-size: cover;
-    height: 109vh;
+    padding-bottom: 50px; /* Espaçamento extra no final */
 }
 
-.navbar{
-    width: 1200px;
+/* NAVBAR E CONTAINER */
+.navbar {
+    width: 90%; /* Ajuste para ser responsivo */
+    max-width: 1200px; /* Limite máximo de largura */
     height: 75px;
     margin: auto;
-}
-
-.icon{
-    width: 200px;
-    float: left;
-    height: 70px;
-}
-
-.logo{
-    color: #ff7200;
-    font-size: 38px;
-    font-family: 'Courier New', Courier, monospace;
-    padding-left: 20px;
-    float: left;
-    padding-top: 10px;
-}
-
-.menu{
-    width: 400px;
-    float: left;
-    height: 70px;
-}
-
-ul{
-    float: left;
-    display: flex;
-    justify-content: center;
+    display: flex; /* Usar flexbox para alinhamento */
+    justify-content: space-between; /* Espaço entre logo/menu/search */
     align-items: center;
 }
 
-ul li{
-    list-style: none;
-    margin-left: 62px;
-    margin-top: 27px;
-    font-size: 14px;
+.icon {
+    width: 200px;
+    height: 70px;
 }
 
-ul li a{
+.logo {
+    color: #ff7200;
+    font-size: 38px;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 0; /* Removido padding para melhor alinhamento */
+    padding-top: 10px;
+}
+
+/* MENU DE NAVEGAÇÃO */
+.menu {
+    flex-grow: 1; /* Permite que o menu ocupe o espaço disponível */
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    display: flex;
+    padding: 0; /* Reset de padding */
+    list-style: none; /* Adicionado para remover marcadores de lista */
+}
+
+ul li {
+    margin: 0 15px; /* Espaçamento mais flexível */
+    font-size: 16px; /* Aumentado um pouco o tamanho */
+}
+
+ul li a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    transition: 0.3s ease-in-out; 
+    transition: color 0.3s ease-in-out, transform 0.3s; /* Transição de cor e escala */
 }
 
-ul li a:hover{
+ul li a:hover {
     color: #ff7200;
+    transform: scale(1.1); /* Animação de escala ao passar o mouse */
 }
 
-.search{
-    width: 330px;
-    float: left;
-    margin-left: 270px;
+/* BARRA DE PESQUISA */
+.search {
+    width: 300px; /* Largura ajustada */
+    display: flex;
+    align-items: center;
+    margin-left: 0;
 }
 
-.srch{
+.srch {
     font-family: 'Times New Roman', Times, serif;
-    width: 200px;
-    height: 25px;
+    width: 190px;
+    height: 35px; /* Altura ajustada */
     background: transparent;
     border: 1px solid #ff7200;
-    margin-top: 13px;
     color: #fff;
     border-right: none;
     font-size: 16px;
-    float: left;
     padding: 10px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    transition: border-color 0.3s; /* Transição de cor da borda */
 }
 
-.bnt{
-    width: 100px;
-    height: 25px;
+.srch:focus {
+    outline: none;
+    border-color: #fff; /* Foco mais visível */
+}
+
+.bnt {
+    width: 90px;
+    height: 35px; /* Altura ajustada para combinar com o input */
     background: #ff7200;
     border: 2px solid #ff7200;
-    margin-top: 13px;
     color: #000000;
     font-size: 14px;
     border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px; /* Adicionado para completar o retângulo */
     cursor: pointer;
-    transition: 0.5s;
+    transition: background-color 0.5s, color 0.5s; /* Transição de fundo e cor */
 }
 
-.bnt:hover{
+.bnt:hover {
     background-color: #fff;
+    color: #ff7200;
 }
 
-.bnt:focus{
+.bnt:focus {
     outline: none;
 }
 
-.srch:focus{
-    outline: none;
-}
 
-.content{
-    width: 1200px;
-    height: auto;
+/* CONTEÚDO PRINCIPAL */
+.content {
+    width: 90%;
+    max-width: 1200px;
     margin: auto;
     color: #fff;
     position: relative;
+    padding-top: 50px;
+    display: flex; /* Usar flexbox */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    justify-content: space-between; /* Espaço entre o conteúdo e o formulário */
 }
 
-.content .par{
-    padding-left: 15px;
-    padding-bottom: 25pix;
-    font-family: 'Arial';
-    letter-spacing: 1.2px;
-    line-height: 28px;
-}
-
-.content h1{
+.content h1 {
     font-family: 'Times New Roman';
     font-size: 50px;
     padding-left: 20px;
-    margin-top: 9%;
+    margin-top: 0; /* Removido margem superior fixa */
     letter-spacing: 2px;
+    animation: fadeInSlide 1s ease-out; /* Aplicação da animação */
 }
 
-.content .cn{
+.content .par {
+    padding-left: 15px;
+    padding-bottom: 25px; /* Corrigido de 'pix' para 'px' */
+    font-family: 'Arial';
+    letter-spacing: 1.2px;
+    line-height: 28px;
+    max-width: 600px; /* Limitar largura do parágrafo */
+}
+
+.content .cn {
+    display: block; /* Para melhor controle do link */
     width: 160px;
-    height: 26px;
+    height: 40px; /* Aumentado um pouco a altura */
     background: #ff7200;
-    margin-bottom: 10px;
     margin-left: 20px;
     margin-top: 15px;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.4s ease;
+    transition: background-color 0.4s ease, transform 0.4s;
+    text-align: center;
+    line-height: 40px; /* Centralizar texto verticalmente */
+    border: none;
 }
 
-.content .cn a{
+.content .cn a {
     text-decoration: none;
     color: black;
+    font-weight: bold;
 }
 
-.cn:hover{
+.cn:hover {
     background-color: #fff;
+    transform: scale(1.05); /* Animação de escala */
 }
 
-.content span{
+.content span {
     color: #ff7200;
     font-size: 60px;
 }
 
+/* FORMULÁRIO (Efeito Glassmorphism) */
 .form {
-  width: 250px;
-  height: 380px;
-  background: rgba(255, 255, 255, 0.027); /* leve transparência */
-  border: 1px solid rgba(212, 91, 11, 0.808);
-  border-radius: 10px;
-  padding: 20px;
-  position: absolute;
-  top: -20px;
-  left: 870px;
-
-  /* Aqui vem o efeito de vidro */
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(px); /* para compatibilidade */
+    width: 300px; /* Largura ajustada */
+    height: 420px; /* Altura ajustada */
+    background: rgba(255, 255, 255, 0.05); /* Leve transparência */
+    border: 1px solid rgba(255, 114, 0, 0.5); /* Borda laranja semi-transparente */
+    border-radius: 10px;
+    padding: 20px;
+    position: relative; /* Mudado de absolute para relative, para melhor responsividade */
+    margin: 50px auto 20px auto; /* Centraliza o formulário */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    
+    /* Efeito de vidro */
+    backdrop-filter: blur(8px); /* Aumentei o blur para 8px */
+    -webkit-backdrop-filter: blur(8px); 
+    transition: box-shadow 0.3s;
 }
 
-.form h2{
-    width: 220px;
+.form:hover {
+    box-shadow: 0 0 40px rgba(255, 114, 0, 0.5); /* Sombra de destaque no hover */
+}
+
+.form h2 {
+    width: 100%;
     font-family: sans-serif;
     text-align: center;
     color: #ff7200;
     font-size: 22px;
     background-color: #fff;
     border-radius: 8px;
-    margin: 3px;
-    padding: 4px;
+    margin: 3px 0;
+    padding: 8px;
 }
 
-.form input{
-    width: 240px;
-    height: 34px;
+.form input {
+    width: 100%; /* Largura total do formulário */
+    height: 40px;
     background: transparent;
     border-bottom: 1px solid #ff7200;
     border-top: none;
@@ -203,71 +242,173 @@ ul li a:hover{
     color: #fff;
     font-size: 15px;
     letter-spacing: 1px;
-    margin-top: 28px;
+    margin-top: 25px;
     font-family: sans-serif;
+    padding: 5px 0;
+    transition: border-color 0.3s;
 }
 
-.form input:focus{
+.form input:focus {
     outline: none;
+    border-bottom-color: #fff; /* Destaque no foco */
 }
 
-::placeholder{
+::placeholder {
     color: #ffffffad;
     font-family: Arial;
 }
 
-.bntt{
-    width: 240px;
-    height: 30px;
+.bntt {
+    width: 100%;
+    height: 40px;
     background: #ff7200;
     border: none;
     margin-top: 30px;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
     color: #fff;
     transition: 0.4s ease;
+    font-weight: bold; /* Adicionado para manter a consistência */
 }
 
-.bntt:hover{
+.bntt:hover {
     background: #fff;
     color: #ff7200;
+    transform: scale(1.02);
 }
 
-.bntt a{
+.bntt a {
     text-decoration: none;
-    color: #000000;
+    color: inherit; /* Herdando a cor do .bntt */
+}
+
+.form .link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-top: 15px;
+    text-align: center;
+    color: #fff; /* Cor do texto do link */
+}
+
+.form .link a {
+    text-decoration: none;
+    color: #ff7200;
     font-weight: bold;
 }
 
-.form .link{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    padding-top: 20px;
-    text-align: center;
-}
-
-.form .link a{
-    text-decoration: none;
-    color: #ff7200;
-}
-
+/* ÍCONES SOCIAIS */
 .iconn {
-  display: flex;
-  padding-left: 29px;
-  gap: 29px;
-  left: 50px;               
-  margin-top: 55px;
-  margin-right: 20px;        
+    display: flex;
+    justify-content: center; /* Centraliza os ícones */
+    gap: 20px; /* Espaçamento entre os ícones */
+    margin-top: 30px;
+    padding: 0;
 }
 
 .iconn img {
-  width: 30px; 
-  height: 30px;
-  cursor: pointer;
-  transition: transform 0.3s;
+    width: 35px; /* Aumentado o tamanho */
+    height: 35px;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
 }
 
 .iconn img:hover {
-  transform: scale(1.3); 
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 8px #ff7200); /* Efeito de brilho laranja */
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
+
+/* Telas menores que 768px (Tablets e Mobile Landscape) */
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        flex-direction: column; /* Empilha os itens */
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .icon, .menu, .search {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .logo {
+        padding-top: 0;
+        float: none;
+    }
+
+    .menu {
+        order: 3; /* Move o menu para o final */
+    }
+
+    ul {
+        flex-direction: column; /* Empilha os itens do menu */
+        align-items: center;
+    }
+
+    ul li {
+        margin: 8px 0;
+    }
+
+    .search {
+        order: 2; /* Move a busca para o meio */
+        justify-content: center;
+        margin-left: 0;
+    }
+    
+    .content {
+        padding-top: 20px;
+        flex-direction: column; /* Empilha conteúdo e formulário */
+        align-items: center;
+        text-align: center;
+    }
+
+    .content h1 {
+        font-size: 40px;
+        padding-left: 0;
+        margin-top: 5%;
+    }
+
+    .content .par {
+        padding-left: 0;
+    }
+
+    .content .cn {
+        margin: 15px auto 10px auto; /* Centraliza o botão */
+    }
+
+    .form {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-top: 40px;
+        width: 90%; /* Ocupa mais largura na tela */
+        max-width: 350px;
+        height: auto;
+    }
+}
+
+/* Telas menores que 480px (Mobile Portrait) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 32px;
+    }
+
+    .srch, .bnt {
+        width: auto;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .srch {
+        width: 60%;
+        padding: 5px;
+    }
+
+    .bnt {
+        width: 30%;
+    }
 }
